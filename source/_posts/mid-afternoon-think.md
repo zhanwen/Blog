@@ -5,6 +5,7 @@ tags:
 	- 生活
 categories:
 	- Diary
+comments: true
 ---
 
 ![Alt text](/images/think_background.jpg)
