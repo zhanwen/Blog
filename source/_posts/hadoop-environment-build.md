@@ -1,7 +1,9 @@
 ---
 title: Hadoop环境搭建
 date: 2017-10-14 22:30:51
-tags: Hadoop, 大数据
+tags: 
+     - Hadoop
+     - 大数据
 
 ---
 
