@@ -1,7 +1,7 @@
 ---
 title: ssh配置无密码登陆
 date: 2017-10-14 22:05:21
-tags: linux 
+tags: Linux
 ---
 
 # 1、在A机器上生成密钥对

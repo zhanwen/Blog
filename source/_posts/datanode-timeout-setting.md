@@ -2,7 +2,7 @@
 title: DataNode节点超时时间设置
 date: 2017-10-18 23:30:50
 tags: 
-	- Haddop
+	- Hadoop
 	- 大数据
 
 ---
