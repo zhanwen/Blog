@@ -5,7 +5,7 @@ tags:
 	- 生活
 	- 杂谈
 ---
-
+![Alt text](/images/moon.jpg)
 &emsp;&emsp;每天驱动我们的不是梦想，而是现实。现实让我们一天一天的进步。你不前进则后退。  
 
 <!-- more -->   
