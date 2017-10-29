@@ -90,4 +90,6 @@ plugins:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/zhanwen/zhanwen.github.io
+  branch: master
