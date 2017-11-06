@@ -27,7 +27,7 @@ null值的注意事项：
 
 	1、对于要处理null的表达式，可以使用nvl(a,b),若a不为null，则返回a的值
 	2、对于要选择null的列，如果使用column=null则一条也不能查询出来，而要选择column is null才可以选择null的列。
-	3、in, not in 本质上是逻辑or运算，in(id=1 or id=2 or id=null), not(id=1 or id=2, id=null), 其中 False or Null == Null, True or Null == True
+	3、in, not in 本质上是逻辑or运算，in(id=1 or id=2 or id=null), not(id=1 and id=2 and id=null), 其中 False or Null == Null, True or Null == True
 	4. null的升序是没有问题的，降序的时候null最大，会排在最前面，可以使用nulls last命令将其排在后面。
 
 edit命令，执行edit（ed）命令之后，在windows上会将上一条sql通过记事本打开，在linux上则会通过vi打开。
@@ -110,13 +110,39 @@ order by
     作用于后面所有的列，先按照第一个列排序，如果相同，再按照第二列排序；以此类推。
     desc 只作用于离他最近的一列
 
+SQL执行时间的开关
+    
+    set timing on       
+    set timing off      
+        
+和集合中任意一个值比较     
+    
+    any 
+
+和集合中的所有值比较     
+    
+    all
+
+行号,伪列        
+    
+    rownum 
+
+关于行号
+   
+    1. rownum 永远按照默认的顺序生成
+    2. rownum只能使用< <=; 不能使用> >=
+
+临时表：create global temporary table
+    
+    特点：当事务或者会话结束的时候，表中的数据自动删除
 
 sql优化
     
     1、*和字段名
     2、where 从右往左，先判断右边的在判断左边的
     3、尽量使用where
-
+    4. 理论上，尽量使用多表查询
+    5. 尽量不要使用集合运算
 
 
 
