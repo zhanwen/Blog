@@ -79,12 +79,29 @@ tags:
 	flush privileges;
 
 
+查询
 
+	select count(*) from mysql.user;
+	select *from mysql.db;
+	select * from mysql.db where host like '10.0.%';
 
+插入
+	
+	update db1.t1 set name='aaa' where id=1;
 
+清空表
+	
+	truncate table db1.t1；
 
+删除表
+	
+	drop table db1.t1;
 
+删除数据库
+	
+	drop database db1;
 
-
-两种引擎的区别
-Myisam，innodb
+修复表tb1
+	
+	repair table tb1 [use_frm];
+	repair table 表名；
