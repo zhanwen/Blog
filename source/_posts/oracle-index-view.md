@@ -1,5 +1,5 @@
 ---
-title: Oracle数据类型
+title: Oracle索引和视图
 date: 2017-11-07 22:35:31
 tags:
 	- Oracle
