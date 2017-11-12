@@ -223,3 +223,69 @@ mongodb的安装
 	//删除索引
 	db.collection.dropIndex({key:1})
 	//删除集合，也会将集合中的索引全部删除
+
+固定集合指的是事先创建而且大小固定的集合。固定集合特性：固定集合很像环形队列，如果空间不足，最早的文档就会被删除，为新的文档腾出空间。一般来说，固定集合适用于任何想要自动淘汰过期属性的场景，没有太多的操作限制。创建固定集合使用命令
+	
+	//size指定集合大小，单位为KB，max指定文档的数量 
+	db.createCollection(“collectionName”,{capped:true,size:100000,max:100});  
+
+当指定文档数量上限时，必须同时指定大小。淘汰机制只有在容量还没有满时才会依据文档数量来工作。要是容量满了，淘汰机制会依据容量来工作。 
+
+
+备份(mongodump)和恢复(mongorestore)
+MongoDB提供了备份和恢复的功能，分别是MongoDB下载目录下的mongodump.exe和mongorestore.exe文件,备份数据使用下面的命令：
+	
+	//-h：MongDB所在服务器地址，例如：127.0.0.1，当然也可以指定端口号：127.0.0.1:27017
+    //-d：需要备份的数据库实例，例如：test
+    //-o：备份的数据存放位置，例如：c:\data\dump，当然该目录需要提前建立，在备份完成后，系统自动在dump目录下建立一个test目录，这个目录里面存放该数据库实例的备份数据。
+	mongodump -h dbhost -d dbname -o dbdirectory
+
+恢复数据使用下面的命令：
+	
+	//-h：MongoDB所在服务器地址
+    //-d：需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如test2
+    //-directoryperdb：备份数据所在位置，例如：c:\data\dump\test
+	mongorestore -h dbhost -d dbname -directoryperdb dbdirectory
+
+导入(mongoimport)和导出(mongoexport)
+导出数据可以使用命令
+
+    //-h 数据库地址
+    //-d 指明使用的库
+    //-c 指明要导出的集合
+    //-o 指明要导出的文件名
+	mongoexport -h dbhost -d dbname -c collectionName -o output
+
+导入数据可以使用命令：
+	
+	//-h 数据库地址
+    //-d 指明使用的库
+    //-c 指明要导入的集合
+	mongoimport -h dbhost -d dbname -c collectionname 文件的地址...
+
+安全和认证
+每个MongoDB实例中的数据库都可以有许多用户。如果开启了安全性检查，则只有数据库认证用户才能执行读或者写操作。在认证的上下文中，MongoDB会将普通的数据作为admin数据库处理。admin数据库中的用户被视为超级用户(即管理员)。在认证之后，管理员可以读写所有数据库，执行特定的管理命令，如listDatabases和shutdown。在开启安全检查之前，一定要至少有一个管理员账号。
+
+在admin数据库中创建管理员账号：
+	
+	use admin;
+	db.addUser(“root”,”root”);
+
+在test数据库中创建普通账号：
+	
+	use test;
+	db.addUser(“zhangsan”,”123”);
+	db.addUser(“lisi”,”123”,true);
+
+注意：用户zhangsan，密码为123，对test数据库拥有读写权限，用户lisi，密码为123，对test数据库拥有只读权限
+
+重新启动数据库服务，并开启安全检查
+	
+	mongod --dbpath d:\mongo_data --auth
+
+
+
+
+
+
+
