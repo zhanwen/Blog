@@ -78,7 +78,7 @@ mongodb的安装
 启动mongodb
 
 	1. 新建一个mongodb的数据存放路径
-	2. mongodb --dbpath=存放路径 (=号两边不要有空格)
+	2. mongod --dbpath=存放路径 (=号两边不要有空格)
 
 默认占用一个端口对外提供服务（默认端口27017）
 
