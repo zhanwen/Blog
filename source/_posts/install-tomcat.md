@@ -39,3 +39,21 @@ tags:
 
 浏览器输入http://[自己的ip]:8080 可以看到tomcat的欢迎页
 
+更改默认启动端口，
+
+	vim conf/server.xml
+	Connector port="8080" 改为Connector port="80"
+
+配置新虚拟主机：找到`</Host>`下一行插入新的`<Host>`内容如下：
+
+	<Host name="www.123.cn" appBase="/data/tomcatweb"
+    	unpackWARs="false" autoDeploy="true"
+    	xmlValidation="false" xmlNamespaceAware="false">
+    	<Context path="" docBase="./" debug="0" reloadable="true" crossContext="true"/>
+	</Host>
+
+重启
+	
+	service tomcat stop;
+	service tomcat start
+
