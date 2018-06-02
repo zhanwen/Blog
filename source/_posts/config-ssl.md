@@ -48,7 +48,8 @@ tags:
         }
     }
    
-配置完成后，先用`bin/nginx –t`来测试下配置是否有误，正确无误的话，重启 nginx。就可以使 https://www.domain.com 来访问了。配置文件参数如下
+配置完成后，先用`bin/nginx –t`来测试下配置是否有误，正确无误的话，重启 nginx。就可以使 https://www.domain.com 来访问了。配置文件参数如下  
+
 ![](../images/ssl3.png)
 
 ##### 4 使用全站加密，http 自动跳转 https（可选）
