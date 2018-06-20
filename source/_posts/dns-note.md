@@ -1,5 +1,5 @@
 ---
-title: dns-note
+title: DNS 了解下
 date: 2017-10-18 23:26:03
 tags: 
 	- Linux
