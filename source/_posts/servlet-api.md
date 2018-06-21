@@ -8,6 +8,8 @@ tags:
 ---
 `Sevelt` 的框架的核心是 `javax.servlet.Servlet`接口，所有的`Servlet`都必须实现这一接口。在`Servlet`接口定义了五个方法，其中有三个方法代表了`Servlet`的生命周期：  
 
+<!-- more -->
+
 	init	方法：负责初始化Servlet对象
 	service	方法：辅助响应客户的请求
 	destroy	方法：当Servlet对象退出生命周期时，负责释放占用的资源
