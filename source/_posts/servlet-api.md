@@ -6,7 +6,7 @@ tags:
 	- Servlet
 	- API
 ---
-`Sevelt` 的框架的核心是 `javax.servlet.Servlet`接口，所有的`Servlet`都必须实现这一接口。在`Servlet`接口定义了五个方法，其中有三个方法代表了`Servlet`的生命周期：  
+`Sevelt` 的框架的核心是 `javax.servlet.Servlet`接口，所有的`Servlet`都必须实现这一接口。在`Servlet`接口中定义了五个方法，其中有三个方法代表了`Servlet`的生命周期：  
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ tags:
 	
       —servlet容器启动时自动装载某些Servlet
       —在servlet容器启动后，客户首先向Servlet发出请求
-      —Servlet类文件被更新后，重新转载Servlet
+      —Servlet类文件被更新后，重新装载Servlet
       —Servlet被装载后，Servlet容器创建一个Servlet实例并且调用Servlet的init（）方法进行初始化。在Servlet的整个生命周期中，init方法只会被调用一次。
 2、响应客户请求阶段  
 对于到达`Servlet`容器的客户请求，`Servlet`容器创建特定于这个请求的`ServletRequest`对象和`ServletResponse`对象，然后调用`Servlet`的`service`方法，`service`方法从`ServletRequest`对象获得客户请求信息、处理该请求，并通过`ServletResponse`对象相客户返回响应结果。  
