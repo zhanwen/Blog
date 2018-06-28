@@ -9,17 +9,17 @@ tags:
 
 2. 可以拿一台机器作为跳板机来登陆其他服务器，其他服务器做登陆ip限制
 	
-	/etc/shos.allow, /etc/hosts.deny
+		/etc/shos.allow, /etc/hosts.deny
 
 3. 能使用密钥尽量避免使用密码登陆     
 	
-	vim /etc/ssh/sshd_config  //PermitRootLogin without-password 改为 PermitRootLogin no
+		vim /etc/ssh/sshd_config  //PermitRootLogin without-password 改为 PermitRootLogin no
 
 4. 可以禁止root直接登陆服务器，只允许普通用户登录，普通用户su到root（PermitRootLogin no）    
 	
-	vim /etc/ssh/sshd_config               
-	chkconfig --list                               
-	chkconfig nginx off
+		vim /etc/ssh/sshd_config               
+		chkconfig --list                               
+		chkconfig nginx off
 
 <!-- more -->
 
@@ -35,21 +35,21 @@ tags:
 
 10. web禁止目录浏览
 	
-	（apache：Option -Indexes；nginx编译时加上 --without-http_autoindex_module）
+		（apache：Option -Indexes；nginx编译时加上 --without-http_autoindex_module）
 
 11. web可写目录下禁止解析php
 	
-	（apache：php_admin_flag engine off；nginx：location ～.*abc/.*\.php?${deny all;}
+		（apache：php_admin_flag engine off；nginx：location ～.*abc/.*\.php?${deny all;}
 
 12. web默认虚拟机主机禁止访问，apache第一个虚拟主机，nginx如果不单独分离虚拟主机配置文件也为第一个，否则就是有“listen 80 default”那个。
 
 13. 设定php禁用函数：php.ini中增加
 	
-	disable_functions = popen,passthru,escapeshellarg,escapeshellcmd,escapeshellarg,shell_exec,proc_get_status,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,leak,popepassthru,stream_socket_server,popen,proc_open,proc_close,phpinfo
+		disable_functions = popen,passthru,escapeshellarg,escapeshellcmd,escapeshellarg,shell_exec,proc_get_status,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,leak,popepassthru,stream_socket_server,popen,proc_open,proc_close,phpinfo
 
 14. 设定
 	
-	openbase_dir(apache: php_admin_value open_basedir /data/123:/tmp/; php-fpm: php_admin_value[open_basedir]=/data/123:/tmp/)
+		openbase_dir(apache: php_admin_value open_basedir /data/123:/tmp/; php-fpm: php_admin_value[open_basedir]=/data/123:/tmp/)
 
 15. 网站根目录下禁止有test命令的文件如test.php
 
@@ -57,11 +57,11 @@ tags:
 
 17. php禁止访问远程文件
 	
-	（php.ini中allow_url_fopen = off; allow_url_include = off）
+		（php.ini中allow_url_fopen = off; allow_url_include = off）
 
 18. 站点后台访问需要限定ip
 	
-	（apache http://www.lishiming.net/thread-5365-1-1.html nginx: http://www.lishiming.net/thread-6458-1-1.html )
+		（apache http://www.lishiming.net/thread-5365-1-1.html nginx: http://www.lishiming.net/thread-6458-1-1.html )
 
 19. 建议每个站点都配置访问日志，并且做日志切割压缩归档，磁盘空间允许的话，尽量存放比较久的时间
 
