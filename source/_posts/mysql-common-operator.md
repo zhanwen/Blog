@@ -29,11 +29,11 @@ tags:
 
 当前是哪个用户
 	
-	select user（）；
+	select user()；
 
 当前库
 
-	select database（）；
+	select database()；
 
 创建库
 	
@@ -82,7 +82,7 @@ tags:
 查询
 
 	select count(*) from mysql.user;
-	select *from mysql.db;
+	select * from mysql.db;
 	select * from mysql.db where host like '10.0.%';
 
 插入
