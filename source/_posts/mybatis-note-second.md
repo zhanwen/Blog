@@ -70,14 +70,21 @@ resultType和resultMap区别
 不管select返回的是单个 对象还是集合对象，resultType要指定单条记录映射的java对象。
 
 # \#{}与${}的区别
-&emsp;&emsp;\#{}：表示占位符，如果获取简单类型，#{}中可以使用value或其它名称。有效防止sql注入使用#{}设置参数无需考虑参数的类型。如果使用#{}比较日期字段，select * from tablename where birthday >=#{birthday}
+&emsp;&emsp;\#{}：表示占位符，如果获取简单类型，#{}中可以使用value或其它名称。有效防止sql注入使用#{}设置参数无需考虑参数的类型。 比如使用#{}比较日期字段，
+    
+    select * from tablename where birthday >=#{birthday}
 
-&emsp;&emsp;${}：表示sql拼接，如果获取简单类型，#{}中只能使用value。无法防止sql注入。使用${}设置参数必须考虑参数的类型，比如：使用oracle查询条件是日期类型，如果使用${}，必须人为将${}两边加单引号通过to_date转日期。
-Select * from table where birthday >=to_date(‘${birthday}’,’yyyy-MM-dd’)
+&emsp;&emsp;${}：表示sql拼接，如果获取简单类型，#{}中只能使用value。${}无法防止sql注入。使用${}设置参数必须考虑参数的类型，比如：使用oracle查询条件是日期类型，如果使用${}，必须人为将${}两边加单引号通过to_date转日期。
 
-在没有特殊要求的情况下，建议使用#{}占位符,有些情况必须使用${}，比如：需要动态拼接表名,Select * from ${tablename}
+	Select * from table where birthday >=to_date(‘${birthday}’,’yyyy-MM-dd’)
 
-动态拼接排序字段：select * from tablename order by ${username} desc
+在没有特殊要求的情况下，建议使用#{}占位符,有些情况必须使用${}，比如：需要动态拼接表名
+	
+	Select * from ${tablename}
+
+动态拼接排序字段：
+	
+	select * from tablename order by ${username} desc
 
 
 # 包装对象的使用
