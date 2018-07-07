@@ -33,9 +33,9 @@ tags:
 	//4、去除所有以‘#’开头的行
 	grep -v '^#' 1.txt
 	//5、去除所有空行和以'#'开头的行
-	grep -v '^$' 1.txt|grep -v'^#'
+	grep -v '^$' 1.txt | grep -v'^#'
 	//或者是：
-	grep -v '^$' |grep -v'^#' 1.txt
+	grep -v '^$' | grep -v'^#' 1.txt
 	//6、过滤出以英文字母开头的行
 	grep '^[a-zA-Z]' 1.txt
 	//7、过滤出以非数字开头的行
