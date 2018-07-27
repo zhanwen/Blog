@@ -25,8 +25,7 @@ tags:
 		server.2=ip:2888:3888
 		server.3=ip:2888:3888
 	
-&nbsp;&nbsp;&nbsp;&nbsp;3.3 在（dataDir=/home/tools/hadoop/zookeeper-3.4.5data）创建一个myid文件，里面内容是server.N
-中的N（server.2里面内容为2）
+&nbsp;&nbsp;&nbsp;&nbsp;3.3 在（dataDir=/home/tools/hadoop/zookeeper-3.4.5/data）创建一个myid文件，里面内容是server.N中的N（server.2里面内容为2）
 
 		echo "1" > myid
 	
