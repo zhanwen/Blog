@@ -12,7 +12,7 @@ date: 2017-10-11 22:49:30
 * 运营着只有几百人的公众号，「funnyZhang」分享技术和乐趣。   
    
 **其他平台找到我**
-> 称呼：funnyZhang， Mrs.Zhang  
+> 称呼：dotzhang， Mrs.Zhang  
 > Github：[https://github.com/zhanwen](https://github.com/zhanwen)  
 > 微博：funnyZhang  
 > 知乎：[https://www.zhihu.com/people/funnyzhang/](https://www.zhihu.com/people/funnyzhang/)  
